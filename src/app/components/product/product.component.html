@@ -1,0 +1,21 @@
+<button (click)="changeState('add')" [hidden]="state == 'edit'">New product</button>
+
+<form (ngSubmit)="save()" [formGroup]="productForm" [hidden]="state == 'normal'">
+  <input type="hidden" formControlName="id">
+  <input type="text" formControlName="Name">
+  <input type="text" formControlName="Price">
+  <textarea formControlName="Description"></textarea>
+  <button type="submit">Save</button>
+  <button (click)="changeState('normal')">Cancel</button>
+</form>
+
+<div class="products" [hidden]="state != 'normal'">
+  <div class="product" *ngFor="let product of products">
+    <strong>{{product.Name}}</strong>
+    <p>{{product.Price}}</p>
+    <p>{{product.Description}}</p>
+    <button (click)="edit(product)">Edit</button>
+    <button (click)="detail(product)">Detail</button>
+    <button (click)="delete(product)">Delete</button>
+  </div>
+</div>

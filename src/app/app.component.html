@@ -1,0 +1,8 @@
+<ng-progress></ng-progress>
+<nav [hidden]="!isLoggedIn">
+  <a routerLink="/">Home</a>
+  <a routerLink="/products">Products</a>
+  <a href="javascript:void()" (click)="logout()">Logout</a>
+  {{userInfo.username}}
+</nav>
+<router-outlet></router-outlet>
